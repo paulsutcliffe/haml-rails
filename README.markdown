@@ -1,6 +1,10 @@
 # Rails 3 HAML Scaffold Generator
 
-Essentially just a copy of the Rails 3 ERB generator with HAML replacements for the templates.
+Essentially just a copy of the Rails 3 ERB generator with HAML replacements for the templates. 
+
+#This fork
+This fork aims to clean up the Internationalization and other annoyances in that vein.
+
 
 Original idea from [Paul Barry's article on custom genrators][OriginalIdea]
 
@@ -33,10 +37,14 @@ Original idea from [Paul Barry's article on custom genrators][OriginalIdea]
 
 6. Either 
 
+        git clone git://github.com/sleepycat/haml-rails.git lib/generators/haml
+        (or grab the original)
         git clone git://github.com/psynix/rails3_haml_scaffold_generator.git lib/generators/haml
 
     ...or...
 
+        git submodule add git://github.com/sleepycat/haml-rails.git lib/generators/haml
+        (or grab the original)
         git submodule add git://github.com/psynix/rails3_haml_scaffold_generator.git lib/generators/haml
   
 7. Create stuff with:
