@@ -1,6 +1,7 @@
-%h1
-  = t('<%= singular_name %>.edit.title')
+%h2.title
+  = page_title! t('<%= singular_name %>.edit')
 
-= render 'form'
-
-== #{ link_to t('show'), @<%= singular_name %> } | #{ link_to t('back'), <%= plural_name %>_path }
+#content
+  = render 'form'
+  = link_to t('show'), @<%= singular_name %>, :class => 'button show'
+  = link_to t('back'), <%= plural_name %>_path, :class => 'button back'

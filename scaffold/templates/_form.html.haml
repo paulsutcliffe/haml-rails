@@ -1,5 +1,5 @@
-- form_for(@<%= singular_name %>) do |f|
-  
+= form_for(@<%= singular_name %>) do |f|
+
   - if @<%= singular_name %>.errors.any?
     #errorExplanation
       %h2= t('activerecord.errors.messages.<%= singular_name %>.invalid_record')

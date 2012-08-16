@@ -1,7 +1,13 @@
-<% for attribute in attributes -%>
-%p
-  %strong t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
-  = @<%= singular_name %>.<%= attribute.name %>
-<% end -%>
+%h2.title
+  = page_title! <%= singular_name %>
 
-== #{ link_to t('edit'), edit_<%= singular_name %>_path(@<%= singular_name %>) } | #{ link_to t('back'), <%= plural_name %>_path }
+#content
+  <% for attribute in attributes -%>
+  %p
+    %b t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
+      = @<%= singular_name %>.<%= attribute.name %>
+  <% end -%>
+
+  - if current_admin
+    = link_to t('edit'), edit_<%= singular_name %>_path(@<%= singular_name %>)
+  = link_to t('back'), <%= plural_name %>_path
