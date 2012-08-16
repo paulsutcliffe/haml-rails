@@ -2,7 +2,8 @@
   = page_title! t('<%= singular_name %>.index')
 
 #content
-  = link_to t('<%= singular_name %>.new'), new_<%= singular_name %>_path
+  - if current_admin
+    = link_to t('<%= singular_name %>.new'), new_<%= singular_name %>_path
   .table-head
   <% for attribute in attributes -%>
   =t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
