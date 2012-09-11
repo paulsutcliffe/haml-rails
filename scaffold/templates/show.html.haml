@@ -2,11 +2,11 @@
   = page_title! "<%= singular_name %>"
 
 #content
-  <% for attribute in attributes -%>
+<% for attribute in attributes -%>
   %p
-    %b t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
-      = @<%= singular_name %>.<%= attribute.name %>
-  <% end -%>
+    = t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
+    = @<%= singular_name %>.<%= attribute.name %>
+<% end -%>
 
   - if current_admin
     = link_to t('edit'), edit_<%= singular_name %>_path(@<%= singular_name %>)
