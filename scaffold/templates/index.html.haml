@@ -1,20 +1,21 @@
-%h2.title
-  = page_title! t('<%= singular_name %>.index')
+%h2.page-title
+  = page_title! t('<%= plural_name %>.index')
 
 #content
   - if current_admin
-    = link_to t('<%= singular_name %>.new'), new_<%= singular_name %>_path
+    .admin.create
+      = link_to t('<%= singular_name %>.new'), new_<%= singular_name %>_path
   .table-head
 <% for attribute in attributes -%>
     =t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
 <% end -%>
     - for <%= singular_name %> in @<%= plural_name %>
-      .block{ :class => cycle(:odd, :even) }
+      %div{ :class => 'block four columns ' + cycle('odd', 'even') }
 <% for attribute in attributes -%>
         = <%= singular_name %>.<%= attribute.name %>
 <% end -%>
       - if current_admin
-        .admin-controls
+        .admin.controls
           = link_to t('show'), <%= singular_name %>, :class => 'button show'
           = link_to t('edit'), edit_<%= singular_name %>_path(<%= singular_name %>), :class => 'button edit'
           = link_to t('destroy'), <%= singular_name %>, :confirm => I18n.t('confirm_delete'), :class => 'button delete', :method => :delete
