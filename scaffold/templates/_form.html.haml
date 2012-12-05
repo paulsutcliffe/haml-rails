@@ -2,15 +2,15 @@
 
   - if @<%= singular_name %>.errors.any?
     #errorExplanation
-      %h2= t('activerecord.errors.messages.<%= singular_name %>.invalid_record')
+      %h2= I18n.t('activerecord.errors.messages.<%= singular_name %>.invalid_record')
       %ul
       - @<%= singular_name %>.errors.full_messages.each do |msg|
         %li= msg
 <% for attribute in attributes -%>
   .field
-    = f.label :<%= attribute.name %>
+    = f.label <%= attribute.name %>, I18n.t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>') 
     %br
-    = f.<%= attribute.field_type %> :<%= attribute.name %>
+    = f.<%= attribute.field_type %> <%= attribute.name %>
 <% end -%>
 
   .actions

@@ -1,13 +1,26 @@
-%h2.page-title
-  = page_title! "<%= singular_name %>"
+%ul.breadcrumb
+  %li
+    = link_to 'Home', '#'
+
+#sidebar-first
+  = render 'sidebar_first'
 
 #content
+  %h1.page-title
+    = page_title! "<%= singular_name %>"
+
+  #sidebar-second
+    = image_tag '/images/img-show-destinations-mapa.jpg'
 <% for attribute in attributes -%>
-  %p
-    = t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
+  .field.field-image
+  .field.field-content 
+    = I18n.t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
     = @<%= singular_name %>.<%= attribute.name %>
 <% end -%>
 
-  - if current_admin
-    = link_to t('edit'), edit_<%= singular_name %>_path(@<%= singular_name %>)
-  = link_to t('back'), <%= plural_name %>_path
+    .controls
+      .navigation
+        = link_to I18n.t('back'), <%= plural_name %>_path, :class => 'button back'
+      - if current_admin
+        .admin
+          = link_to I18n.t('edit'), edit_<%= singular_name %>_path(@<%= singular_name %>), :class => 'button edit'

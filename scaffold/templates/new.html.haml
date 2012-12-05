@@ -1,6 +1,8 @@
-%h2.page-title
-  = page_title! t('<%= singular_name %>.new')
-
 #content
-  = render 'form'
-  = link_to t('back'), <%= plural_name %>_path, :class => 'button back'
+  %h2.page-title
+    = page_title! t('<%= singular_name %>.new')
+  .content
+    = render 'form'
+    %nav
+      = link_to I18n.t('show'), @<%= singular_name %>, :class => 'button show'
+      = link_to I18n.t('back'), <%= plural_name %>_path, :class => 'button back'
