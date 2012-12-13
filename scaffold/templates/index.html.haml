@@ -8,7 +8,7 @@
   - if current_admin
     .admin.create
       = link_to I18n.t('<%= singular_name %>.new'), new_<%= singular_name %>_path
-  
+
   .content
 <% for attribute in attributes -%>
     = I18n.t('activerecord.attributes.<%= singular_name %>.<%= attribute.name %>')
@@ -20,10 +20,10 @@
 <% end -%>
 
 
-    .controls
-      .navigation
-        = link_to I18n.t('show'), <%= singular_name %>, :class => 'button show'
-      - if current_admin
-        .admin
-          = link_to I18n.t('edit'), edit_<%= singular_name %>_path(<%= singular_name %>), :class => 'button edit'
-          = link_to I18n.t('destroy'), <%= singular_name %>, :confirm => I18n.t('confirm_delete'), :class => 'button delete', :method => :delete
+        .controls
+          .navigation
+            = link_to I18n.t('show'), <%= singular_name %>, :class => 'button show'
+          - if current_admin
+            .admin
+              = link_to I18n.t('edit'), edit_<%= singular_name %>_path(<%= singular_name %>), :class => 'button edit'
+              = link_to I18n.t('destroy'), <%= singular_name %>, :confirm => I18n.t('confirm_delete'), :class => 'button delete', :method => :delete
